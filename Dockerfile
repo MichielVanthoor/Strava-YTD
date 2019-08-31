@@ -1,4 +1,4 @@
-python:3.7-alpine
+FROM python:3.7-alpine
 
 RUN useradd -ms /bin/bash strava-ytd
 
