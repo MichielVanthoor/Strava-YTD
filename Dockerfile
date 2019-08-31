@@ -1,14 +1,20 @@
-FROM python:3.7-alpine
+FROM python
 
-WORKDIR /home/strava-ytd
+RUN useradd -ms /bin/bash app
+
+WORKDIR /home/app
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY app app
-COPY strava-ytd.py boot.sh ./
+COPY app.py boot.sh ./
 RUN chmod +x boot.sh
 
-ENV FLASK_APP strava-ytd.py
+ENV FLASK_APP app
 
+RUN chown -R app:app ./
+USER app
+
+EXPOSE 5000
 ENTRYPOINT ["./boot.sh"]
