@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="nl">
+<html>
+  <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66210105-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());    
+      gtag('config', 'UA-66210105-1');
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Strava YTD</title>
+
+    <!-- Flavicon-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico')}}">
+
+    <!-- Lato Font import -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+    <body>
+      <!-- Header -->
+      <header>
+       <a href="/index"> <div class="d-flex flex-column flex-md-row align-items-center p-1 px-md-4 mb-0 bg-white border-bottom shadow-sm">
+          <div class="mr-md-auto">
+            <img src="https://storage.googleapis.com/images-de-uitdaging/de-uitdaging-logo-header.jpg" alt="De Uitdaging Logo"></a>
+          </div>
+          <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/over_ons">Over ons</a>
+          </nav>
+          <!-- <a class="btn btn-outline-primary" href="">Neem deel & Steun</a> -->
+        </div>
+      </header>
+
+      <!-- Content -->
+      {% block content %}{% endblock %}
+
+      <!-- Footer -->
+      <footer class="px-3 py-1 fixed-bottom site-footer nav-bar mt-5">
+        <div class="container">
+          <p class="text-center text-white">Wil je in contact komen? Mail <u><a href="mailto:hello@de-uitdaging.org" class="text-white">hello@de-uitdaging.org</a></u> of bezoek <u><a href="https://www.facebook.com/DeUitdagingBE/" class="text-white">onze Facebook pagina</a></u>.</p>
+        </div>
+      </footer>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

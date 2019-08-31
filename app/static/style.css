@@ -1,0 +1,28 @@
+body {
+  font-family: "Lato";
+  padding-bottom: 70px;
+  /* To make sure footer does not overlap with text */
+}
+
+.news-background{
+ background-image: linear-gradient(
+          rgba(0, 0, 0, 0.5), 
+          rgba(0, 0, 0, 0.5)
+        ),url(https://storage.googleapis.com/images-de-uitdaging/open-water-running.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+.aboutus-background{
+ background-image: linear-gradient(
+          rgba(0, 0, 0, 0.5), 
+          rgba(0, 0, 0, 0.5)
+        ),url(https://storage.googleapis.com/images-de-uitdaging/group-picture-lamarmotte.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center; 
+}
+
+.site-footer {
+  background-color: #333333;
+}
