@@ -22,7 +22,7 @@ def index():
 
 @app.route('/login')
 def login():
-    print url_for('authorized')
+    print(url_for('authorized'))
     return redirect(stravaclient.authorization_url(client_id=29215, redirect_uri= url_for('authorized')))
 
 @app.route('/authorized')
