@@ -2,3 +2,4 @@ Flask==1.0.2
 Gunicorn==19.9.0
 werkzeug>=0.15.3
 flask_sslify==0.1.5
+stravalib==0.6.5
