@@ -43,8 +43,11 @@ def authorized():
     # check it before making an API call.
     stravaclient.token_expires_at = expires_at
      
+    return redirect_uri(url_for('home'))
+
+@app.route('/home')
+def home():
     athlete = stravaclient.get_athlete()
-    name=athlete.firstname
-
-    return render_template('authorized.html', name=name)
-
+    name=athlete.firstname  
+    
+    return render_template('home.html', name=name)
