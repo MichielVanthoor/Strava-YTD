@@ -43,7 +43,7 @@ def authorized():
     # check it before making an API call.
     stravaclient.token_expires_at = expires_at
      
-    return redirect_uri(url_for('home'))
+    return redirect_uri('https://app-45w2jmzzla-ew.a.run.app/home')
 
 @app.route('/home')
 def home():
