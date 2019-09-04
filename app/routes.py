@@ -26,7 +26,7 @@ def index():
 def login():
 	redirect_uri = domain+'/authorized'
 	print(redirect_uri) 
-    return redirect(stravaclient.authorization_url(client_id=29215, redirect_uri=redirect_uri)
+    return redirect(stravaclient.authorization_url(client_id=29215, redirect_uri=redirect_uri))
 
 @app.route('/authorized')
 def authorized():
