@@ -23,7 +23,7 @@ def index():
 
 @app.route('/login')
 def login():
-    return redirect(stravaclient.authorization_url(client_id=29215, redirect_uri='https://app-45w2jmzzla-ew.a.run.app/authorized'))
+    return redirect(stravaclient.authorization_url(client_id=29215, redirect_uri='https://app-45w2jmzzla-ew.a.run.app/authorized',scope='activity:read_all'))
 
 @app.route('/authorized')
 def authorized():
