@@ -48,7 +48,7 @@ def authorized():
     # athlete = client.get_athlete()
     # print("For {id}, I now have an access token {token}".format(id=athlete.id, token=access_token))
 
-    name=athlete.id
+    # name=athlete.id
     name='Michiel'    
 
     return render_template('authorized.html', name=name)
