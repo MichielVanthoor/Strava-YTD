@@ -28,12 +28,10 @@ def login():
 @app.route('/authorized')
 def authorized():
     code = request.args.get('code')
-    print(code)
     token_response = stravaclient.exchange_code_for_token(client_id=29215, client_secret='9f09fa714a5aa4f9a0950b56ccc2f9d008ce2102', code=code)
-    print(token_response)
-    # access_token = token_response['access_token']
-    # refresh_token = token_response['refresh_token']
-    # expires_at = token_response['expires_at']    
+    access_token = token_response['access_token']
+    refresh_token = token_response['refresh_token']
+    expires_at = token_response['expires_at']    
 
     # # Now store that short-lived access token somewhere (a database?)
     # client.access_token = access_token
