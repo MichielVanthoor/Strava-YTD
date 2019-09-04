@@ -49,5 +49,8 @@ def authorized():
 def home():
     athlete = stravaclient.get_athlete()
     name=athlete.firstname  
-    
+
+    for activity in stravaclient.get_activities(after = "2019-01-01T00:00:00Z"):
+        print("{0.name}".format(activity))
+ 
     return render_template('home.html', name=name)
