@@ -1,6 +1,5 @@
 from app import app
 
-
 import os
 
 from flask import render_template, request, url_for, redirect
