@@ -11,8 +11,10 @@ from werkzeug.contrib.fixers import ProxyFix
 # Configure HTTPS redirect
 app.wsgi_app = ProxyFix(app.wsgi_app)
 SSLify(app)
-stravaclient = Client()
 
+# Initialize Strava Client
+stravaclient = Client()
+domain = 'app-45w2jmzzla-ew.a.run.app'
 
 # Overview of all the routes
 @app.route('/')
@@ -22,8 +24,9 @@ def index():
 
 @app.route('/login')
 def login():
-    print(url_for('authorized'))
-    return redirect(stravaclient.authorization_url(client_id=29215, redirect_uri= url_for('authorized')))
+	redirect_uri = domain+'/authorized'
+	print(redirect_uri) 
+    return redirect(stravaclient.authorization_url(client_id=29215, redirect_uri=redirect_uri)
 
 @app.route('/authorized')
 def authorized():
