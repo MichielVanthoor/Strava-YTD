@@ -33,18 +33,18 @@ def authorized():
     refresh_token = token_response['refresh_token']
     expires_at = token_response['expires_at']    
 
-    # # Now store that short-lived access token somewhere (a database?)
-    # client.access_token = access_token
-    # # You must also store the refresh token to be used later on to obtain another valid access token 
-    # # in case the current is already expired
-    # client.refresh_token = refresh_token    
+    # Now store that short-lived access token somewhere (a database?)
+    stravaclient.access_token = access_token
+    # You must also store the refresh token to be used later on to obtain another valid access token 
+    # in case the current is already expired
+    stravaclient.refresh_token = refresh_token    
 
     # # An access_token is only valid for 6 hours, store expires_at somewhere and
     # # check it before making an API call.
-    # client.token_expires_at = expires_at
+    stravaclient.token_expires_at = expires_at
      
-    # athlete = client.get_athlete()
-    # print("For {id}, I now have an access token {token}".format(id=athlete.id, token=access_token))
+    athlete = client.get_athlete()
+    print("For {id}, I now have an access token {token}".format(id=athlete.id, token=access_token))
 
     # name=athlete.id
     name='Michiel'    
