@@ -39,15 +39,12 @@ def authorized():
     # in case the current is already expired
     stravaclient.refresh_token = refresh_token    
 
-    # # An access_token is only valid for 6 hours, store expires_at somewhere and
-    # # check it before making an API call.
+    # An access_token is only valid for 6 hours, store expires_at somewhere and
+    # check it before making an API call.
     stravaclient.token_expires_at = expires_at
      
     athlete = stravaclient.get_athlete()
-    print("For {id}, I now have an access token {token}".format(id=athlete.id, token=access_token))
-
-    # name=athlete.id
-    name='Michiel'    
+    name=athlete.firstname
 
     return render_template('authorized.html', name=name)
 
