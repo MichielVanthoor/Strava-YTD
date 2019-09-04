@@ -43,7 +43,7 @@ def authorized():
     # # check it before making an API call.
     stravaclient.token_expires_at = expires_at
      
-    athlete = client.get_athlete()
+    athlete = stravaclient.get_athlete()
     print("For {id}, I now have an access token {token}".format(id=athlete.id, token=access_token))
 
     # name=athlete.id
