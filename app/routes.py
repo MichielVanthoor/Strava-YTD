@@ -1,7 +1,10 @@
+import os
+import firebase_admin
+
 from app import app
 
-import os
-
+from firebase_admin import credentials
+from firebase_admin import firestore
 from flask import render_template, request, url_for, redirect
 from flask_sslify import SSLify
 from stravalib.client import Client
@@ -14,6 +17,15 @@ SSLify(app)
 # Initialize Strava Client
 stravaclient = Client()
 domain = 'app-45w2jmzzla-ew.a.run.app'
+
+#Initialize Firebase credentials
+# Use the application default credentials
+cred = credentials.ApplicationDefault()
+firebase_admin.initialize_app(cred, {
+  'projectId': 'strava-ytd',
+})
+db = firestore.client()
+
 
 # Overview of all the routes
 @app.route('/')
@@ -48,9 +60,11 @@ def authorized():
 @app.route('/home')
 def home():
     athlete = stravaclient.get_athlete()
-    name=athlete.firstname  
 
-    for activity in stravaclient.get_activities(after = "2019-01-01T00:00:00Z"):
-        print("{0.name}".format(activity))
- 
-    return render_template('home.html', name=name)
+    doc_ref = db.collection(u'users').document(athlete.id)
+    doc_ref.set({
+        u'firstname': athlete.firstname,
+        u'lastname': athlete.lastname,
+/    })
+
+    return render_template('home.html', name=athlete.firstname)
