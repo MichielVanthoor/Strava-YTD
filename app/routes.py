@@ -67,12 +67,12 @@ def home():
     })
 
     for activity in stravaclient.get_activities(after="2010-01-01T00:00:00Z"):
-        activity_ref = athlete_ref.collection('activities').document((str(activity.id)))
+        activity_ref = athlete_ref.collection('activities').document(str(activity.id))
         activity_ref.set({
             u'id': activity.id,
             u'name': activity.name,
             u'type': activity.type,
-            u'distance': activity.distance,
+            u'distance': float(activity.distance),
         })
 
     return render_template('home.html', name=athlete.firstname)
