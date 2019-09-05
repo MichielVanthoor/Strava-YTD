@@ -65,6 +65,6 @@ def home():
     doc_ref.set({
         u'firstname': athlete.firstname,
         u'lastname': athlete.lastname,
-/    })
+    })
 
     return render_template('home.html', name=athlete.firstname)
