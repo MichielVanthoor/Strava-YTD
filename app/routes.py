@@ -54,17 +54,25 @@ def authorized():
     # An access_token is only valid for 6 hours, store expires_at somewhere and
     # check it before making an API call.
     stravaclient.token_expires_at = expires_at
-     
+
     return redirect('https://app-45w2jmzzla-ew.a.run.app/home')
 
 @app.route('/home')
 def home():
     athlete = stravaclient.get_athlete()
-
-    doc_ref = db.collection(u'users').document(str(athlete.id))
-    doc_ref.set({
+    athlete_ref = db.collection(u'users').document(str(athlete.id))
+    athlete_ref.set({
         u'firstname': athlete.firstname,
         u'lastname': athlete.lastname,
     })
+
+    for activity in stravaclient.get_activities(after="2010-01-01T00:00:00Z"):
+        activity_ref = athlete_ref.collection('activities').document((str(activity.id)))
+        activity_ref.set({
+            u'id': activity.id,
+            u'name': activity.name,
+            u'type': activity.type,
+            u'distance': activity.distance,
+        })
 
     return render_template('home.html', name=athlete.firstname)
