@@ -72,6 +72,7 @@ def home():
             u'id': activity.id,
             u'name': activity.name,
             u'type': activity.type,
+            u'start_date_local': activity.start_date_local,
             u'distance': float(activity.distance),
         })
 
