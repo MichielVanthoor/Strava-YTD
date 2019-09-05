@@ -61,7 +61,7 @@ def authorized():
 def home():
     athlete = stravaclient.get_athlete()
 
-    doc_ref = db.collection(u'users').document(str*athlete.id))
+    doc_ref = db.collection(u'users').document(str(athlete.id))
     doc_ref.set({
         u'firstname': athlete.firstname,
         u'lastname': athlete.lastname,
